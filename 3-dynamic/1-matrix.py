@@ -1,6 +1,4 @@
 '''
-Problema 1
-==========
 Se dispone de una matriz M de tamaño FxC (F es la cantidad de filas y C la cantidad de columnas), cuyas 
 celdas tienen un valor numérico entero positivo. Por ejemplo, la matriz con 4 filas y 5 columnas siguiente:
 

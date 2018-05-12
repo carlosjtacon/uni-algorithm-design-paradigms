@@ -1,7 +1,4 @@
-
 '''
-Problema 1
-==========
 Se tienen N elementos distintos almacenados en una estructura de acceso directo 
 (por ejemplo, un vector con los números 1, 2, 3, 4 y 5, o la cadena abcdefg) y se 
 quiere obtener todas las formas distintas de colocar esos elementos, es decir, hay 

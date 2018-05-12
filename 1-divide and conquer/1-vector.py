@@ -1,13 +1,14 @@
+'''
+Se tiene un vector V[1..N] formado por números enteros, de manera que todos 
+ellos distintos, y que están ordenados de manera creciente. Se dice que un vector 
+de estas características es coincidente si tiene al menos una posición tal que es 
+igual al valor que contiene el vector en esa posición. Por ejemplo, en el vector
+[-14,-6,3,6,16,28,37,43] puede verse que V[3] = 3; por lo tanto, este vector es coincidente.
 
-# Se tiene un vector V[1..N] formado por números enteros, de manera que todos 
-# ellos distintos, y que están ordenados de manera creciente. Se dice que un vector 
-# de estas características es coincidente si tiene al menos una posición tal que es 
-# igual al valor que contiene el vector en esa posición. Por ejemplo, en el vector
-# [-14,-6,3,6,16,28,37,43] puede verse que V[3] = 3; por lo tanto, este vector es coincidente.
-
-# Diseñar un algoritmo Divide y Vencerás que determine en un orden de eficiencia no 
-# superior a O(log N) si un vector es coincidente, recibiendo como datos el vector 
-# y su tamaño.
+Diseñar un algoritmo Divide y Vencerás que determine en un orden de eficiencia no 
+superior a O(log N) si un vector es coincidente, recibiendo como datos el vector 
+y su tamaño.
+'''
 
 ### FUNCTIONS ###
 

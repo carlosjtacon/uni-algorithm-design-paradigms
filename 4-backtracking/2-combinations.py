@@ -1,7 +1,4 @@
-
 '''
-Problema 2
-==========
 Resolver el problema anterior considerando la posibilidad de que los elementos se repitan 
 entre sí (por ejemplo, el vector 1, 2, 3, 1 o la cadena acabada).
 '''

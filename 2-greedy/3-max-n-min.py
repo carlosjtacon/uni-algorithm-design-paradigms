@@ -1,14 +1,16 @@
-# Se dispone de un vector V formado por n datos, del que se quiere encontrar el 
-# elemento mínimo del vector y el elemento máximo del vector. El tipo de los datos 
-# que hay en el vector no es relevante para el problema, pero la comparación entre 
-# dos datos para ver cuál es menor es muy costosa, por lo que el algoritmo para la 
-# búsqueda del mínimo y del máximo debe hacer la menor cantidad de comparaciones entre 
-# elementos posible.
+'''
+Se dispone de un vector V formado por n datos, del que se quiere encontrar el 
+elemento mínimo del vector y el elemento máximo del vector. El tipo de los datos 
+que hay en el vector no es relevante para el problema, pero la comparación entre 
+dos datos para ver cuál es menor es muy costosa, por lo que el algoritmo para la 
+búsqueda del mínimo y del máximo debe hacer la menor cantidad de comparaciones entre 
+elementos posible.
 
-# Un método trivial consiste en un recorrido lineal del vector para buscar el máximo y 
-# después otro recorrido para buscar el mínimo, lo que requiere un total de aproximadamente 
-# 2n comparaciones entre datos. Este método no es lo suficientemente rápido, por lo que se 
-# pide implementar un método con metodología Voraz que realice un máximo de 3/2n comparaciones.
+Un método trivial consiste en un recorrido lineal del vector para buscar el máximo y 
+después otro recorrido para buscar el mínimo, lo que requiere un total de aproximadamente 
+2n comparaciones entre datos. Este método no es lo suficientemente rápido, por lo que se 
+pide implementar un método con metodología Voraz que realice un máximo de 3/2n comparaciones.
+'''
 
 ### FUNCTIONS ###
 def getMayor(a, b):

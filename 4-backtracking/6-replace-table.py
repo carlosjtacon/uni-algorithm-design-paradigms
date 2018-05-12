@@ -1,6 +1,4 @@
 '''
-Problema 6
-==========
 Se tiene la tabla de sustitución que aparece a continuación que se usa de la manera siguiente: 
 en una cadena cualquiera, dos caracteres consecutivos se pueden sustituir por el valor 
 que aparece en la tabla, utilizando el primer carácter como fila y el segundo carácter como 

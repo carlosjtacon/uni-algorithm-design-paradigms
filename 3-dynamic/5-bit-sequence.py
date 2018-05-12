@@ -1,6 +1,4 @@
 '''
-Problema 7
-==========
 Se define una secuencia de bits A como una sucesión A = {a1, a2, ..., an} donde cada ai puede tomar el 
 valor 0 o el valor 1, y n es la longitud de la secuencia A. A partir de una secuencia se define una 
 subsecuencia X de A como X = {x1, x2, ..., xk}, siendo k ≤ n, de forma que X puede obtenerse eliminando 

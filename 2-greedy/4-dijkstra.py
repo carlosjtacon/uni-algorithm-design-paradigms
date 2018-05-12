@@ -1,4 +1,6 @@
-# Algoritmo de dijkstra
+'''
+Algoritmo de dijkstra
+'''
 
 import math
 ### FUNCTIONS ###

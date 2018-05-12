@@ -1,15 +1,17 @@
-# Se tiene que almacenar un conjunto de n ficheros en una cinta magnética (soporte de 
-# almacenamiento de recorrido secuencial), teniendo cada fichero una longitud conocida 
-# l1, l2, ..., ln. Para simplificar el problema, puede suponerse que la velocidad de 
-# lectura es constante, así como la densidad de información en la cinta.
-# Se conoce de antemano la tasa de utilización de cada fichero almacenado, es decir, 
-# se sabe la cantidad de peticiones pi correspondiente al fichero i que se van a realizar. 
-# Por tanto, el total de peticiones al soporte será la cantidad  P = ∑ pi. Tras 
-# la petición de un fichero, al ser encontrado la cinta es automáticamente rebobinada 
-# hasta el comienzo de la misma.
+'''
+Se tiene que almacenar un conjunto de n ficheros en una cinta magnética (soporte de 
+almacenamiento de recorrido secuencial), teniendo cada fichero una longitud conocida 
+l1, l2, ..., ln. Para simplificar el problema, puede suponerse que la velocidad de 
+lectura es constante, así como la densidad de información en la cinta.
+Se conoce de antemano la tasa de utilización de cada fichero almacenado, es decir, 
+se sabe la cantidad de peticiones pi correspondiente al fichero i que se van a realizar. 
+Por tanto, el total de peticiones al soporte será la cantidad  P = ∑ pi. Tras 
+la petición de un fichero, al ser encontrado la cinta es automáticamente rebobinada 
+hasta el comienzo de la misma.
 
-# El objetivo es decidir el orden en que los n ficheros deben ser almacenados para que se 
-# minimice el tiempo medio de carga, creando un algoritmo voraz correcto.
+El objetivo es decidir el orden en que los n ficheros deben ser almacenados para que se 
+minimice el tiempo medio de carga, creando un algoritmo voraz correcto.
+'''
 
 ### FUNCTIONS ###
 

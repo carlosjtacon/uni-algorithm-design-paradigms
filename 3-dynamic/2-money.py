@@ -1,6 +1,4 @@
 '''
-Problema 3
-==========
 Se tiene un sistema de billetes de distintos valores y ordenados de menor a mayor (por 
 ejemplo 1, 2, 5, 10, 20, 50 y 100 euros), que se representan mediante los valores vi, con i ∈ {1, ..., N} 
 (en el caso anterior, N = 7) de manera que de cada billete se tiene una cantidad finita, mayor o igual 

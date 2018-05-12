@@ -1,6 +1,4 @@
 '''
-Problema 4
-==========
 Se dispone de un tablero M de tamaño FxC (F es la cantidad de filas y C la cantidad de columnas) 
 y se pone en una casilla inicial (posx, posy) un caballo de ajedrez. El objetivo es encontrar, 
 si es posible, la forma en la que el caballo debe moverse para recorrer todo el tablero de manera 

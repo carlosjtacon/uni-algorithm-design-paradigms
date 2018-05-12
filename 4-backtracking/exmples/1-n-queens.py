@@ -1,4 +1,3 @@
-
 n = 4
 solucion = [-1 for i in range(n)]
 

@@ -1,7 +1,4 @@
-
 '''
-Problema 3
-==========
 Se tiene un número de Tam cifras almacenado en una cadena de texto; por ejemplo, la cadena dato = 1151451.
 Diseñar un algoritmo que mediante técnicas de Backtracking encuentre, de la manera más eficiente posible, 
 todos los números distintos de N cifras que puedan formarse con los números de la cadena sin alterar su 

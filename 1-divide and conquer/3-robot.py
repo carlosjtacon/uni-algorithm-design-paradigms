@@ -1,19 +1,21 @@
-# Se quiere programar un robot para poner tapones de corcho a las botellas 
-# de una fábrica de reciclado. Se tienen disponibles N botellas y los N corchos 
-# que las tapan (N es constante en el problema), pero hay una serie de problemas:
+'''
+Se quiere programar un robot para poner tapones de corcho a las botellas 
+de una fábrica de reciclado. Se tienen disponibles N botellas y los N corchos 
+que las tapan (N es constante en el problema), pero hay una serie de problemas:
 
-#  Las botellas son todas distintas entre sí, igual que los corchos: cada botella 
-# solo puede cerrarse con un corcho concreto, y cada corcho solo sirve para una botella 
-# concreta.
-#  El robot está preparado para cerrar botellas, por lo que lo único que sabe hacer 
-# es comparar corchos con botellas. El robot puede detectar si un corcho es demasiado 
-# pequeño, demasiado grande, o del tamaño justo para cerrar una botella.
-#  El robot no puede comparar corchos entre sí para “ordenarlos” por grosor, y tampoco 
-# puede hacerlo con las botellas.
-#  El robot tiene espacio disponible y brazos mecánicos para colocar botellas y corchos 
-# a su antojo, por ejemplo en distintas posiciones de una mesa, si es necesario.
+ Las botellas son todas distintas entre sí, igual que los corchos: cada botella 
+solo puede cerrarse con un corcho concreto, y cada corcho solo sirve para una botella 
+concreta.
+ El robot está preparado para cerrar botellas, por lo que lo único que sabe hacer 
+es comparar corchos con botellas. El robot puede detectar si un corcho es demasiado 
+pequeño, demasiado grande, o del tamaño justo para cerrar una botella.
+ El robot no puede comparar corchos entre sí para “ordenarlos” por grosor, y tampoco 
+puede hacerlo con las botellas.
+ El robot tiene espacio disponible y brazos mecánicos para colocar botellas y corchos 
+a su antojo, por ejemplo en distintas posiciones de una mesa, si es necesario.
 
-# Diseñar el algoritmo que necesita el robot para taponar las N botellas de manera óptima.
+Diseñar el algoritmo que necesita el robot para taponar las N botellas de manera óptima.
+'''
 
 ### FUNCTIONS ###
 

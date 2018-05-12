@@ -1,6 +1,4 @@
 '''
-Problema 5
-==========
 Se tiene un grafo dirigido G = < N, A >, siendo N = {1, ..., n} el conjunto de nodos y A ⊆ NxN el conjunto 
 de aristas. Sea M la matriz de adyacencia del grafo G, es decir, M[i, j] = TRUE si existe la arista (i, j), 
 y M[i, j] = FALSE en caso contrario.

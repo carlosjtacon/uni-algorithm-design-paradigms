@@ -1,24 +1,26 @@
-# En Abecelandia, ciudad famosa por sus N bellas plazas y que puede que conozcas, tienen 
-# un curioso sistema de carreteras: desde cada plaza sale una calle a todas las otras plazas 
-# que comienzan con una letra que se encuentre en su nombre (por ejemplo, de la plaza Aro 
-# salen calles que llevan a las plazas que empiezan por R, como las plaza Ruido y Reto, o 
-# por O, como la plaza Osa, pero no salen calles a plazas como Duende, Cascada o Tiara). 
-# Las calles son de sentido único (de la plaza Aro se puede ir a la plaza Ruido, pero no 
-# al revés ya que no cumple la regla de las letras; obviamente, otras plazas como Aro y Osa 
-# están conectadas entre sí en ambas direcciones). Todas estas conexiones entre las N plazas 
-# están recogidas en un callejero, representado por una matriz de adyacencia de tamaño NxN; 
-# así, el valor de Callejero[p, q] indica si se puede ir de la plaza p a la plaza q.
+'''
+En Abecelandia, ciudad famosa por sus N bellas plazas y que puede que conozcas, tienen 
+un curioso sistema de carreteras: desde cada plaza sale una calle a todas las otras plazas 
+que comienzan con una letra que se encuentre en su nombre (por ejemplo, de la plaza Aro 
+salen calles que llevan a las plazas que empiezan por R, como las plaza Ruido y Reto, o 
+por O, como la plaza Osa, pero no salen calles a plazas como Duende, Cascada o Tiara). 
+Las calles son de sentido único (de la plaza Aro se puede ir a la plaza Ruido, pero no 
+al revés ya que no cumple la regla de las letras; obviamente, otras plazas como Aro y Osa 
+están conectadas entre sí en ambas direcciones). Todas estas conexiones entre las N plazas 
+están recogidas en un callejero, representado por una matriz de adyacencia de tamaño NxN; 
+así, el valor de Callejero[p, q] indica si se puede ir de la plaza p a la plaza q.
 
-# Se acerca el día 26 de Abril, festividad de San Isidoro de Sevilla (patrón de las Letras 
-# y, casualmente, de los informáticos), y en el Ayuntamiento de Abecelandia han decidido que 
-# para celebrarlo van a invertir la dirección de todas las calles que conectan sus plazas. 
-# En ese día no se podrá circular de Aro a Ruido, pero sí se permitirá ir de Ruido a Aro; 
-# obviamente, Aro y Osa seguirán conectadas entre sí.
+Se acerca el día 26 de Abril, festividad de San Isidoro de Sevilla (patrón de las Letras 
+y, casualmente, de los informáticos), y en el Ayuntamiento de Abecelandia han decidido que 
+para celebrarlo van a invertir la dirección de todas las calles que conectan sus plazas. 
+En ese día no se podrá circular de Aro a Ruido, pero sí se permitirá ir de Ruido a Aro; 
+obviamente, Aro y Osa seguirán conectadas entre sí.
 
-# Diseñar formalmente un algoritmo Divide y Vencerás estándar que, teniendo por dato el 
-# callejero de la ciudad (representado por la matriz de adyacencia), obtenga el nuevo 
-# callejero válido para el día de San Isidoro de Sevilla, indicando las estructuras de 
-# datos que se utilicen.
+Diseñar formalmente un algoritmo Divide y Vencerás estándar que, teniendo por dato el 
+callejero de la ciudad (representado por la matriz de adyacencia), obtenga el nuevo 
+callejero válido para el día de San Isidoro de Sevilla, indicando las estructuras de 
+datos que se utilicen.
+'''
 
 import math
 

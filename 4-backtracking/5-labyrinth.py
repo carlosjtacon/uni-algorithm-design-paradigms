@@ -1,7 +1,4 @@
-
 '''
-Problema 5
-==========
 Se dispone de una tabla laberinto[1..n,1..m] con valores lógicos que representa un laberinto.
 El valor TRUE indica la existencia de una pared (no se puede atravesar), mientras que FALSE 
 representa una casilla recorrible. Para moverse por el laberinto, a partir de una casilla se 

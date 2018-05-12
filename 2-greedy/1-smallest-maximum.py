@@ -1,19 +1,21 @@
-# Se tienen n números naturales, siendo n una cantidad par, que tienen que juntarse formando 
-# parejas de dos números cada una. A continuación, de cada pareja se obtiene la suma de sus 
-# dos componentes, y de todos estos resultados se toma el máximo.
+'''
+Se tienen n números naturales, siendo n una cantidad par, que tienen que juntarse formando 
+parejas de dos números cada una. A continuación, de cada pareja se obtiene la suma de sus 
+dos componentes, y de todos estos resultados se toma el máximo.
 
-# Diseñar un algoritmo voraz que cree las parejas de manera que el valor máximo de las sumas de los números de cada pareja sea lo más pequeño posible, demostrando que la función de selección de candidatos usada proporciona una solución óptima.
-# Ejemplo: suponiendo que los datos se encuentran en el vector siguiente [5,8,1,4,7,9]
-# vamos a ver un par de formas de resolver el problema (no necesariamente la óptima): 
-# Seleccionamos como pareja los elementos consecutivos
-# De esta forma conseguimos las parejas (5, 8), (1, 4) y (7, 9); entonces, 
-# al sumar las componentes tenemos los valores 15, 5 y 16, por lo que el resultado 
-# final es 16. Seleccionamos como pareja los elementos opuestos en el vector
-# Ahora tenemos las parejas (5, 9), (8, 7) y (1, 4); sumando conseguimos 14, 15 y 5, por 
-# lo que el resultado final es 15 (mejor que antes).
-# ¿Habrá un resultado mejor para este problema? ¿Puede generalizarse un método que nos 
-# proporcione un algoritmo voraz correcto para cualquier cantidad de datos, y que además 
-# sea independiente del valor de los mismos?
+Diseñar un algoritmo voraz que cree las parejas de manera que el valor máximo de las sumas de los números de cada pareja sea lo más pequeño posible, demostrando que la función de selección de candidatos usada proporciona una solución óptima.
+Ejemplo: suponiendo que los datos se encuentran en el vector siguiente [5,8,1,4,7,9]
+vamos a ver un par de formas de resolver el problema (no necesariamente la óptima): 
+Seleccionamos como pareja los elementos consecutivos
+De esta forma conseguimos las parejas (5, 8), (1, 4) y (7, 9); entonces, 
+al sumar las componentes tenemos los valores 15, 5 y 16, por lo que el resultado 
+final es 16. Seleccionamos como pareja los elementos opuestos en el vector
+Ahora tenemos las parejas (5, 9), (8, 7) y (1, 4); sumando conseguimos 14, 15 y 5, por 
+lo que el resultado final es 15 (mejor que antes).
+¿Habrá un resultado mejor para este problema? ¿Puede generalizarse un método que nos 
+proporcione un algoritmo voraz correcto para cualquier cantidad de datos, y que además 
+sea independiente del valor de los mismos?
+'''
 
 ### FUNCTIONS ###
 def quicksort(vector):

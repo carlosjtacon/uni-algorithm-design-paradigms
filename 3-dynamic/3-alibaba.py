@@ -1,6 +1,4 @@
 '''
-Problema 4
-==========
 Alí Babá ha conseguido entrar en la cueva de los ciento un mil ladrones, y ha llevado consigo su camello 
 junto con dos grandes alforjas; el problema es que se encuentra con tanto tesoro que no sabe ni qué llevarse. 
 Los tesoros son joyas talladas, obras de arte, cerámica... es decir, son objetos únicos que no pueden 
