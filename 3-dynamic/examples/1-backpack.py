@@ -1,31 +1,27 @@
-objetos_pesos = [1, 2,  5,  6,  7]
-objetos_valor = [1, 6, 18, 22, 28]
-mochila_capacidad = 11
+obj_weight = [1, 2,  5,  6,  7]
+obj_val = [1, 6, 18, 22, 28]
+backpack_capacity = 11
 
-num_objetos = len(objetos_pesos)
-matriz = [[-1 for col in range(mochila_capacidad + 1)] for row in range(num_objetos + 1)]
-# fila = objetos disponibles | columna = capacidad de la mochila
+num_obj = len(obj_weight)
+matrix = [[-1 for col in range(backpack_capacity + 1)] for row in range(num_obj + 1)]
+# row = available obj | column = backpack capacity
 
-for col in range(mochila_capacidad + 1):
-    # rellenamos la primera fila de la matriz con 0
-    # el equivalente a no meter ningún objeto en mochilas de capacidad 0 - mochila_capacidad
-    matriz[0][col] = 0
+for col in range(backpack_capacity + 1):
+    # first matrix row is 0 no object with a 0 backpack_capacity
+    matrix[0][col] = 0
 
-for row in range(1, num_objetos + 1):
-    # recorriendo el resto de filas de la matriz
+for row in range(1, num_obj + 1):
     
-    for col in range(objetos_pesos[row - 1]):
-        # rellenamos copiando los valores de la fila anterior hasta 
-        # llegar al la posición del peso actual
-        matriz[row][col] = matriz[row - 1][col]
+    for col in range(obj_weight[row - 1]):
+        # copy previous row until 
+        # current weight position
+        matrix[row][col] = matrix[row - 1][col]
     
-    for col in range(objetos_pesos[row - 1], mochila_capacidad + 1):
-        # rellenamos el resto de columnas eligiendo el máximo entre el mismo valor 
-        # que la fila anterior y misma columna o el valor del objeto actual más el valor de la matriz 
-        # de la fila anterior y la columna que se corresponde a restar el peso del objeto a la capacidad
-        matriz[row][col] = max(matriz[row - 1][col], matriz[row - 1][col - objetos_pesos[row - 1]] + objetos_valor[row - 1])
+    for col in range(obj_weight[row - 1], backpack_capacity + 1):
+        # for the remaining we pick the max
+        matrix[row][col] = max(matrix[row - 1][col], matrix[row - 1][col - obj_weight[row - 1]] + obj_val[row - 1])
 
-print('EL VALOR DE LA MOCHILA ES', matriz[num_objetos][mochila_capacidad])
-for row in matriz:
+print('BACKPACK TOTAL VALUE ', matrix[num_obj][backpack_capacity])
+for row in matrix:
     print(row)
 
