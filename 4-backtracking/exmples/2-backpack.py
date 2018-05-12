@@ -1,54 +1,50 @@
-objetos_pesos = [1, 2,  5,  6,  7]
-objetos_valor = [1, 6, 18, 22, 28]
+obj_weight = [1, 2,  5,  6,  7]
+obj_values = [1, 6, 18, 22, 28]
 
-num_objetos = len(objetos_pesos)
-mochila_capacidad = 11
+num_obj = len(obj_weight)
+backpack_capacity = 11
 
-solucion = [-1 for i in range(num_objetos)]
-mochila_final = None
-peso_final = 0
-valor_final = 0
+solution = [-1 for i in range(num_obj)]
+backpack_end = None
+weight_end = 0
+value_end = 0
 
-def mochila(solucion, k):
-    global num_objetos
+def backpack(solution, k):
+    global num_obj
     i = 0
-    while solucion[k] != 1: # for 0/1 (?)
-        # primero es indefinido[-1], luego no se añade[0] y finalmente se añade[1] -> fin de while
-        solucion[k] = i
-        if valido(solucion):
-            if k == num_objetos - 1:
-                # ya hemos llegado a recorrer todos los objetos
-                escribir(solucion)
+    while solution[k] != 1:
+        solution[k] = i
+        if valid(solution):
+            if k == num_obj - 1:
+                escribir(solution)
             else:
-                mochila(solucion, k+1)
+                backpack(solution, k+1)
         i += 1
-    #volvemos a igualar la solución a -1
-    solucion[k] = -1
+    solution[k] = -1
 
-def valido(solucion):
-    global num_objetos, objetos_pesos, mochila_capacidad
-    peso_aux = 0
-    for i in range(num_objetos):
-        if solucion[i] == 1:
-            peso_aux += objetos_pesos[i]
+def valid(solution):
+    global num_obj, obj_weight, backpack_capacity
+    weight_aux = 0
+    for i in range(num_obj):
+        if solution[i] == 1:
+            weight_aux += obj_weight[i]
 
-    # es valido si no supera la capacidad de la mochila
-    return mochila_capacidad >= peso_aux
+    return backpack_capacity >= weight_aux
 
-def escribir(solucion):
-    global valor_final, peso_final, mochila_final, num_objetos, objetos_pesos, objetos_valor
-    peso_aux = 0
+def escribir(solution):
+    global value_end, weight_end, backpack_end, num_obj, obj_weight, obj_values
+    weight_aux = 0
     valor_aux = 0
-    for i in range(num_objetos):
-        if solucion[i] == 1:
-            peso_aux += objetos_pesos[i]
-            valor_aux += objetos_valor[i]
+    for i in range(num_obj):
+        if solution[i] == 1:
+            weight_aux += obj_weight[i]
+            valor_aux += obj_values[i]
     
-    if valor_aux > valor_final:
-        mochila_final = solucion[:]
-        peso_final = peso_aux
-        valor_final = valor_aux
+    if valor_aux > value_end:
+        backpack_end = solution[:]
+        weight_end = weight_aux
+        value_end = valor_aux
             
 
-mochila(solucion, 0)
-print('EL VALOR DE LA MOCHILA ES', valor_final)
+backpack(solution, 0)
+print('backpack value', value_end)
