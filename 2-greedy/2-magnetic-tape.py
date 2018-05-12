@@ -1,40 +1,39 @@
 '''
-Se tiene que almacenar un conjunto de n ficheros en una cinta magnética (soporte de 
-almacenamiento de recorrido secuencial), teniendo cada fichero una longitud conocida 
-l1, l2, ..., ln. Para simplificar el problema, puede suponerse que la velocidad de 
-lectura es constante, así como la densidad de información en la cinta.
-Se conoce de antemano la tasa de utilización de cada fichero almacenado, es decir, 
-se sabe la cantidad de peticiones pi correspondiente al fichero i que se van a realizar. 
-Por tanto, el total de peticiones al soporte será la cantidad  P = ∑ pi. Tras 
-la petición de un fichero, al ser encontrado la cinta es automáticamente rebobinada 
-hasta el comienzo de la misma.
+A set of n files must be stored on a magnetic tape (support for
+sequential travel storage), each file having a known length
+l1, l2, ..., ln. To simplify the problem, it can be assumed that the speed of
+reading is constant, as well as the information density on the tape.
+It is known in advance the rate of use of each stored file, that is,
+we know the number of pi requests corresponding to the file i that will be made.
+Therefore, the total requests to the support will be the amount P = Σ pi. After
+the request of a file, when the tape is found is automatically rewound
+until the beginning of it.
 
-El objetivo es decidir el orden en que los n ficheros deben ser almacenados para que se 
-minimice el tiempo medio de carga, creando un algoritmo voraz correcto.
+The objective is to decide the order in which the n files should be stored so that
+Minimize the average loading time, creating a correct greedy algorithm.
 '''
 
 ### FUNCTIONS ###
 
-# FUNCION QUE ORDENA LA CINTA TENIENDO EN CUENTA DURACION Y NUMERO DE LECTURAS
-def ordenarCinta(cinta, lecturas_cinta):
-    cinta_ordenada = []
-    while len(cinta) != 0:
-        # TAMBIEN SE PODRÍA ORDENAR EN BASE A LA RELACIÓN CON QUICKSORT, SERÍA MÁS EFICIENTE
-        mejor = 0
-        for i in range(1, len(cinta)):
-            if cinta[i]/lecturas_cinta[i] < cinta[mejor]/lecturas_cinta[mejor]:
-                # FUNCION OBJETIVO
-                mejor = i
+# Order tape by length and number of reads
+def orderTape(tape, reads_tape):
+    tape_ordered = []
+    while len(tape) != 0:
+        # we could also use quicksort
+        best = 0
+        for i in range(1, len(tape)):
+            if tape[i]/reads_tape[i] < tape[best]/reads_tape[best]:
+                best = i
 
-        cinta_ordenada.append(cinta[mejor])
-        del cinta[mejor]
+        tape_ordered.append(tape[best])
+        del tape[best]
     
-    return cinta_ordenada
+    return tape_ordered
 
 
 ### MAIN ###
-cinta = [10, 4, 2, 5, 9]
-lecturas_cinta = [1, 3, 2, 9, 5]
-orden_cinta = ordenarCinta(cinta, lecturas_cinta)
+tape = [10, 4, 2, 5, 9]
+reads_tape = [1, 3, 2, 9, 5]
+orden_tape = orderTape(tape, reads_tape)
 
-print('EL ORDEN DE LOS FICHEROS EN LA CINTA ES', orden_cinta)
+print('Correct order', orden_tape)

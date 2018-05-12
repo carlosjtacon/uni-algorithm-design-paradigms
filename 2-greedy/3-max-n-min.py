@@ -1,66 +1,65 @@
 '''
-Se dispone de un vector V formado por n datos, del que se quiere encontrar el 
-elemento mínimo del vector y el elemento máximo del vector. El tipo de los datos 
-que hay en el vector no es relevante para el problema, pero la comparación entre 
-dos datos para ver cuál es menor es muy costosa, por lo que el algoritmo para la 
-búsqueda del mínimo y del máximo debe hacer la menor cantidad de comparaciones entre 
-elementos posible.
+There is a vector V formed by n data, from which you want to find the
+minimal vector element and maximum vector element. The type of the data
+what's in the vector is not relevant to the problem, but the comparison between
+two data to see which is less is very expensive, so the algorithm for the
+search for the minimum and maximum should make the least amount of comparisons between
+possible elements.
 
-Un método trivial consiste en un recorrido lineal del vector para buscar el máximo y 
-después otro recorrido para buscar el mínimo, lo que requiere un total de aproximadamente 
-2n comparaciones entre datos. Este método no es lo suficientemente rápido, por lo que se 
-pide implementar un método con metodología Voraz que realice un máximo de 3/2n comparaciones.
+A trivial method consists of a linear path of the vector to search for the maximum and
+then another tour to look for the minimum, which requires a total of approximately
+2n comparisons between data. This method is not fast enough, so it is
+asks to implement a method with greedy methodology that makes a maximum of 3/2n comparisons.
 '''
 
 ### FUNCTIONS ###
-def getMayor(a, b):
+def getGreater(a, b):
     return a if a > b else b
 
-def maximoMinimo(vector):
+def maxMin(vector):
     print('VECTOR', vector)
     i = 0
-    vectorMinimo = []
-    vectorMaximo = []
+    vectorMinimum = []
+    vectorMaximum = []
     while i < len(vector):
-        # CONSTRUIMOS DOS VECTORES, UNO DE LOS ELEMENTOS QUE HAN SIDO 
-        # MAYORES Y OTRO DE LOS QUE HAN SIDO MENORES, ASÍ PODEMOS ASEGURAR 
-        # QUE AHÍ SE ENCONTRARÁ EL MÁXIMO Y MÍNIMO RESPECTIVAMENTE
+        # two vectors, one of the ones that have been greater and the rest
+        # we can assure that in the first one will be the max and the min in the other
         
         if i == len(vector) -1:
-            # ULTIMA POSICION IMPAR COMPARAMOS CON ANTERIOR
+            # last odd position, with previous
             if vector[i] > vector[i - 1]:
-                vectorMaximo.append(vector[i])
+                vectorMaximum.append(vector[i])
             else:
-                vectorMinimo.append(vector[i])
+                vectorMinimum.append(vector[i])
         elif vector[i] > vector[i + 1]:
-            vectorMaximo.append(vector[i])
-            vectorMinimo.append(vector[i + 1])
+            vectorMaximum.append(vector[i])
+            vectorMinimum.append(vector[i + 1])
         else:
-            vectorMaximo.append(vector[i + 1])
-            vectorMinimo.append(vector[i])
+            vectorMaximum.append(vector[i + 1])
+            vectorMinimum.append(vector[i])
         
-        # AUMENTAMOS 2 ASÍ RECORREMOS N/2
+        # increase by 2 so loop only N/2
         i += 2
     
-    print('VECTOR MINIMO', vectorMinimo)
-    print('VECTOR MAXIMO', vectorMaximo)
+    print('VECTOR Minimum', vectorMinimum)
+    print('VECTOR Maximum', vectorMaximum)
 
-    minimo = vectorMinimo[0]
-    for k in range(1, len(vectorMinimo)):
-        # ENCONTRAR EL MINIMO N/2
-        if vectorMinimo[k] < minimo:
-            minimo = vectorMinimo[k]
+    Minimum = vectorMinimum[0]
+    for k in range(1, len(vectorMinimum)):
+        # find min N/2
+        if vectorMinimum[k] < Minimum:
+            Minimum = vectorMinimum[k]
 
-    maximo = vectorMaximo[0]
-    for j in range(1, len(vectorMaximo)):
-        # ENCONTRAR EL MAXIMO N/2
-        if vectorMaximo[j] > maximo:
-            maximo = vectorMaximo[j]
+    Maximum = vectorMaximum[0]
+    for j in range(1, len(vectorMaximum)):
+        # find max N/2
+        if vectorMaximum[j] > Maximum:
+            Maximum = vectorMaximum[j]
 
-    return [minimo, maximo]
+    return [Minimum, Maximum]
 
 
 ### MAIN ###
 v = [10, 4, 5, 11, 1, -1, 23]
-resultado = maximoMinimo(v)
-print('EL MINIMO ES', resultado[0], 'Y EL MAXIMO ES', resultado[1])
+result = maxMin(v)
+print('min', result[0], 'amd max', result[1])

@@ -1,39 +1,39 @@
 '''
-Algoritmo de dijkstra
+Dijkstra's Algoritm
+https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
 '''
 
 import math
 ### FUNCTIONS ###
-def dijkstra(nodos, aristas):
-    candidatos = nodos[:]       # VECTOR CANDIDATOS (TODOS LOS NODOS)
-    visitados = [candidatos[0]]  # VECTOR SOLUCION (PRIMER NODO)
-    del candidatos[0]           # ELIMINAMOS PRIMER NODO DE CANDIDATOS
+def dijkstra(vertex, edges):
+    candidates = vertex[:]       # VECTOR CANDIDATOS (TODOS LOS NODOS)
+    visited = [candidates[0]]  # VECTOR SOLUCION (PRIMER NODO)
+    del candidates[0]           # ELIMINAMOS PRIMER NODO DE CANDIDATOS
     
-    distancias = []  # VECTOR CON DISTANCIAS TEMPORALES (DESDE PRIMER NODO A RESTO)
-    for i in range(1, len(aristas[0])):
-        distancias.append(aristas[0][i])
+    distances = []  # VECTOR CON DISTANCIAS TEMPORALES (DESDE PRIMER NODO A RESTO)
+    for i in range(1, len(edges[0])):
+        distances.append(edges[0][i])
 
-    # VORAZ
-    while candidatos:         
-        min_coste = math.inf
-        min_coste_nodo = None
-        for coste in distancias:
-            nodo = distancias.index(coste) + 1
-            if coste < min_coste and nodo in candidatos:
-                min_coste_nodo = nodo
-                min_coste = coste
+    while candidates:         
+        min_cost = math.inf
+        min_cost_vertex = None
+        for cost in distances:
+            vert = distances.index(cost) + 1
+            if cost < min_cost and vert in candidates:
+                min_cost_vertex = vert
+                min_cost = cost
 
-        candidatos.remove(min_coste_nodo)
-        visitados.append(min_coste_nodo)
+        candidates.remove(min_cost_vertex)
+        visited.append(min_cost_vertex)
         
-        d_aux = []  # VECTOR CON DISTANCIAS TEMPORALES (DESDE NODO ACTUAL A RESTO)
-        for i in range(1, len(aristas[min_coste_nodo])):
-            d_aux.append(aristas[min_coste_nodo][i])
+        d_aux = []  # tmp distances
+        for i in range(1, len(edges[min_cost_vertex])):
+            d_aux.append(edges[min_cost_vertex][i])
 
-        for i in range(len(distancias)):
-            distancias[i] = min(distancias[i], min_coste + d_aux[i])
+        for i in range(len(distances)):
+            distances[i] = min(distances[i], min_cost + d_aux[i])
         
-    return distancias, visitados
+    return distances, visited
 
 ### MAIN ###
 
@@ -45,13 +45,13 @@ def dijkstra(nodos, aristas):
 # |3|--->|4|
 #     4
 
-nodos = [0, 1, 2, 3]
-adyacencia = [
+vertex = [0, 1, 2, 3]
+ady = [
     [0, 20, 3, math.inf],
     [math.inf, 0, math.inf, 2],
     [math.inf, 1, 0, 4],
     [math.inf, math.inf, math.inf, 0]
 ]
 
-camino_minimo = dijkstra(nodos, adyacencia)
-print(camino_minimo)
+min_path = dijkstra(vertex, ady)
+print(min_path)

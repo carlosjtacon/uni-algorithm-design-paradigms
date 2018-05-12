@@ -1,42 +1,41 @@
 '''
-Shrek, Asno y Dragona llegan a los pies del altísimo castillo de Lord Farquaad para 
-liberar a Fiona de su encierro. Como sospechaban que el puente levadizo estaría vigilado 
-por numerosos soldados se han traído muchas escaleras, de distintas alturas, con la esperanza 
-de que alguna de ellas les permita superar la muralla; pero ninguna escalera les sirve 
-porque la muralla es muy alta. Shrek se da cuenta de que, si pudiese combinar todas las 
-escaleras en una sola, conseguiría llegar exactamente a la parte de arriba y poder entrar 
-al castillo.
-Afortunadamente las escaleras son de hierro, así que con la ayuda de Dragona van a 
-“soldarlas”. Dragona puede soldar dos escaleras cualesquiera con su aliento de fuego, 
-pero tarda en calentar los extremos tantos minutos como metros suman las escaleras a soldar. 
-Por ejemplo, en soldar dos escaleras de 6 y 8 metros tardaría 6 + 8 = 14 minutos. Si a esta 
-escalera se le soldase después una de 7 metros, el nuevo tiempo sería 14 + 7 = 21 minutos, 
-por lo que habrían tardado en hacer la escalera completa un total de 14 + 21 = 35 minutos.
-Diseñar un algoritmo eficiente que encuentre el mejor coste y manera de soldar las escaleras 
-para que Shrek tarde lo menos posible es escalar la muralla, indicando las estructuras de 
-datos elegidas y su forma de uso. Se puede suponer que se dispone exactamente de las 
-escaleras necesarias para subir a la muralla (ni sobran ni faltan), es decir, que el dato 
-del problema es la colección de medidas de las “miniescaleras” (en la estructura de datos 
-que se elija), y que solo se busca la forma óptima de fundir las escaleras.
+Shrek, Donkey and Dragona arrive at the foot of Lord Farquaad's towering castle.
+free Fiona from her confinement. As they suspected that the drawbridge would be guarded
+many soldiers have brought many ladders, of different heights, with the hope
+that some of them allow them to overcome the wall; but no stairs serve them
+because the wall is very high. Shrek realizes that, if he could combine all the
+stairs in one, would get exactly to the top and be able to enter
+to the castle.
+Fortunately the stairs are made of iron, so with the help of Dragona they go to
+"Solder them". Dragona can weld any two stairs with her fire breath,
+but it takes to heat the ends as many minutes as meters add up the stairs to be welded.
+For example, welding 6 and 8 meters of stairs would take 6 + 8 = 14 minutes. If to this
+ladder was welded after a 7-meter, the new time would be 14 + 7 = 21 minutes,
+so it would have taken to make the whole ladder a total of 14 + 21 = 35 minutes.
+Design an efficient algorithm that finds the best cost and way to weld the stairs
+to make Shrek as late as possible is to climb the wall, indicating the structures of
+chosen data and its form of use. It can be assumed that exactly the
+necessary stairs to climb the wall (there is no need or lack), that is, the data
+of the problem is the collection of measures of the "miniescaleras" (in the data structure
+that is chosen), and that only the optimal way of melting the stairs is looked for.
 '''
 
 ### FUNCTIONS ###
 
-# FUNCION QUE ORDENA LAS ESCALERAS DE MENOR A MAYOR PARA MINIMIZAR EL TIEMPO DE SOLDADO
-def soldarEscaleras(escaleras):
+def joinStairs(stairs):
     total = 0
-    escaleras_ordenadas = []
-    while len(escaleras) != 0:
-        mejor = 0
-        for i in range(1, len(escaleras)):
-            if escaleras[i] < escaleras[mejor]:
-                mejor = i
+    ordered_stairs = []
+    while len(stairs) != 0:
+        best = 0
+        for i in range(1, len(stairs)):
+            if stairs[i] < stairs[best]:
+                best = i
 
-        total += total + escaleras[mejor]
-        escaleras_ordenadas.append(escaleras[mejor])
-        del escaleras[mejor]
+        total += total + stairs[best]
+        ordered_stairs.append(stairs[best])
+        del stairs[best]
 
-    print('SELECCION', escaleras_ordenadas)
+    print('SELECTION', ordered_stairs)
     return total
 
 
@@ -56,20 +55,20 @@ def quicksort(vector):
         first_part.append(vector[i])
         return first_part + second_part
 
-# CON QUICKSORT O MERGESORT MEJORAMOS LA COMPLEJIDAD DEL ALGORITMO
-def soldarEscalerasQuicksort(escaleras):
+# better with quicksort
+def joinStairsQuick(stairs):
     total = 0
-    escaleras_ordenadas = quicksort(escaleras)
-    for i in range(0, len(escaleras_ordenadas)):
-        total += total + escaleras_ordenadas[i]
+    ordered_stairs = quicksort(stairs)
+    for i in range(0, len(ordered_stairs)):
+        total += total + ordered_stairs[i]
 
-    print('QUICKSORT', escaleras_ordenadas)
+    print('QUICKSORT', ordered_stairs)
     return total
 
 
 ### MAIN ###
-escaleras = [10, 4, 2, 5, 9]
-total = soldarEscaleras(escaleras)
-# total = soldarEscalerasQuicksort(escaleras)
+stairs = [10, 4, 2, 5, 9]
+total = joinStairs(stairs)
+# total = joinStairsQuick(stairs)
 
-print('EL TIEMPO TOTAL DE SOLDAR LAS ESCALERAS ES', total)
+print('Total time', total)

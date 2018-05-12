@@ -1,20 +1,23 @@
 '''
-Se tienen n números naturales, siendo n una cantidad par, que tienen que juntarse formando 
-parejas de dos números cada una. A continuación, de cada pareja se obtiene la suma de sus 
-dos componentes, y de todos estos resultados se toma el máximo.
+We have n natural numbers, n being an even number, which have to come together forming
+pairs of two numbers each. Then, from each pair you get the sum of your
+two components, and of all these results the maximum is taken.
 
-Diseñar un algoritmo voraz que cree las parejas de manera que el valor máximo de las sumas de los números de cada pareja sea lo más pequeño posible, demostrando que la función de selección de candidatos usada proporciona una solución óptima.
-Ejemplo: suponiendo que los datos se encuentran en el vector siguiente [5,8,1,4,7,9]
-vamos a ver un par de formas de resolver el problema (no necesariamente la óptima): 
-Seleccionamos como pareja los elementos consecutivos
-De esta forma conseguimos las parejas (5, 8), (1, 4) y (7, 9); entonces, 
-al sumar las componentes tenemos los valores 15, 5 y 16, por lo que el resultado 
-final es 16. Seleccionamos como pareja los elementos opuestos en el vector
-Ahora tenemos las parejas (5, 9), (8, 7) y (1, 4); sumando conseguimos 14, 15 y 5, por 
-lo que el resultado final es 15 (mejor que antes).
-¿Habrá un resultado mejor para este problema? ¿Puede generalizarse un método que nos 
-proporcione un algoritmo voraz correcto para cualquier cantidad de datos, y que además 
-sea independiente del valor de los mismos?
+Design a greedy algorithm that creates the pairs so that the maximum value of the sums
+of the numbers of each pair is as small as possible, demonstrating that the function of
+Selection of candidates used provides an optimal solution.
+
+Example: assuming that the data is in the following vector [5,8,1,4,7,9]
+Let's see a couple of ways to solve the problem (not necessarily the optimal one):
+We select as a couple the consecutive elements
+In this way we get the pairs (5, 8), (1, 4) and (7, 9); so,
+when adding the components we have the values 15, 5 and 16, so the result
+final is 16. We select as a pair the opposite elements in the vector
+Now we have the pairs (5, 9), (8, 7) and (1, 4); adding we get 14, 15 and 5, for
+what the final result is 15 (better than before).
+Will there be a better result for this problem? Can a method be generalized that
+provide a correct voracious algorithm for any amount of data, and that
+be independent of the value of them?
 '''
 
 ### FUNCTIONS ###
@@ -34,26 +37,25 @@ def quicksort(vector):
         first_part.append(vector[i])
         return first_part + second_part
 
-# FUNCION QUE DEVUELVE LA COMBINACIÓN MÁXIMA MÁS PEQUEÑA DE PAREJAS DE ARRAY
-# HABRÁ QUE COMBINAR vector[0] CON vector[n], [1] CON [n-1]... ETC CON EL VECTOR ORDENADO
-def agruparParejas(vector):
+# Returns the smallest maximum of pairs on the array
+# We need to combine vector[0] with vector[n], [1] with [n-1]...
+def pair(vector):
 
     print('VECTOR', vector)
     vector = quicksort(vector)
     print('SORTED', vector)
 
-    maximo = -1
+    maximum = -1
     for i in range(0, len(vector) // 2):
-        pareja = vector[i] + vector[len(vector) - 1 - i]
-        print('PAREJA', vector[i], vector[len(vector) - 1 - i], '=', pareja)
-        if pareja > maximo:
-            #FUNCION OBJETIVO
-            maximo = pareja
+        _pair = vector[i] + vector[len(vector) - 1 - i]
+        print('PAIR', vector[i], vector[len(vector) - 1 - i], '=', _pair)
+        if _pair > maximum:
+            maximum = _pair
         
-    return maximo
+    return maximum
 
 ### MAIN ###
 vector = [5, 8, 1, 4, 7, 9]
-maximo_mas_pequeño = agruparParejas(vector)
+smallest_max = pair(vector)
 
-print('MÁXIMO MAS PEQUEÑO', maximo_mas_pequeño)
+print('SMALLEST MAX', smallest_max)
