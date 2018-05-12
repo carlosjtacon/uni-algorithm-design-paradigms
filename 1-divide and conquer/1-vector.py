@@ -1,47 +1,36 @@
 '''
-Se tiene un vector V[1..N] formado por números enteros, de manera que todos 
-ellos distintos, y que están ordenados de manera creciente. Se dice que un vector 
-de estas características es coincidente si tiene al menos una posición tal que es 
-igual al valor que contiene el vector en esa posición. Por ejemplo, en el vector
-[-14,-6,3,6,16,28,37,43] puede verse que V[3] = 3; por lo tanto, este vector es coincidente.
+We have a vector V[1..N] containing unique integers, and ordered from lowest to highest. 
+This vector is coincident if it has at least one position equal to its value. 
+E.g. [-14,-6,3,6,16,28,37,43], V[3] = 3; so this vector is coincident.
 
-Diseñar un algoritmo Divide y Vencerás que determine en un orden de eficiencia no 
-superior a O(log N) si un vector es coincidente, recibiendo como datos el vector 
-y su tamaño.
+Algorithm with efficiency less or equal than O(log N) that checks if coincident.
 '''
 
 ### FUNCTIONS ###
-
-# UN VECTOR[v] ES COINCIDENTE SI EL VALOR COINCIDE CON SU POSICIÓN,
-# USAMOS LA POSICION DE INICIO[xi] Y DE FIN[xf] DEL SECTOR DEL VECTOR
-# IMPORTANTE QUE EL VECTOR ESTÉ ORDENADO PARA DESCARTAR UNA DE LAS PARTES
-def esCoincidente(xi, xf, v):
-    coincidente = False
-    if xi == xf:
+# Using init[xi] position and end[xe], order required to discard
+def isCoincident(xi, xe, v):
+    coincident = False
+    if xi == xe:
         if v[xi] == xi:
-            coincidente = True
+            coincident = True
     else:
-        mitad = (xi + xf) // 2
-        if v[mitad] == mitad:
-            coincidente = True
+        mid = (xi + xe) // 2
+        if v[mid] == mid:
+            coincident = True
         else:
-            # COMO ESTÁ ORDENADO PODEMOS ASEGURAR QUE SI NO ES COINCIDENTE,
-            # DEPENDIENDO DEL VALOR Y LA POSICIÓN SOLO HABRÁ POSIBLES
-            # COINCIDENTES A IZQUIERDA O DERECHA
-            if v[mitad] < mitad:
-                xi = mitad + 1
+            # Since it is ordered and not coincident in the mid position, there is 
+            # one posibility of coincident: left or right part.
+            if v[mid] < mid:
+                xi = mid + 1
             else:
-                xf = mitad - 1
-            coincidente = esCoincidente(xi, xf, v)
+                xe = mid - 1
+            coincident = isCoincident(xi, xe, v)
     
-    return coincidente
-
-
+    return coincident
 
 ### MAIN ###
+# vector = [-14, -6, 3, 6, 16, 18, 27, 43]      # NO COINCIDENT
+vector = [-20, -14, -6, 3, 6, 16, 18, 27, 43]   # COINCIDENT (3)
 
-# vector = [-14, -6, 3, 6, 16, 18, 27, 43]      # NO COINCIDENTE
-vector = [-20, -14, -6, 3, 6, 16, 18, 27, 43]   # SI COINCIDENTE
-
-es_coincidente = esCoincidente(0, len(vector) - 1, vector)
-print('SI ES COINCIDENTE' if es_coincidente else 'NO ES COINCIDENTE', vector)
+is_coincident = isCoincident(0, len(vector) - 1, vector)
+print('COINCIDENT' if is_coincident else 'NO COINCIDENT', vector)
